@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Заказ оформлен — Кафешка</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <main class="order-card">
+        <h1>Заказ оформлен!</h1>
+        <p>Номер заказа: <strong>#{{ order.id }}</strong></p>
+        <ul>
+            {% for item in order.items %}
+                <li>{{ item.coffee_name }} — {{ item.quantity }} × {{ item.unit_price }} грн.</li>
+            {% endfor %}
+        </ul>
+        {% set ns = namespace(total=0) %}
+        {% for item in order.items %}
+            {% set ns.total = ns.total + item.quantity * item.unit_price %}
+        {% endfor %}
+        <p><strong>Итого: {{ ns.total }} грн.</strong></p>
+        <p><a href="{{ url_for('home') }}">Вернуться в меню</a></p>
+    </main>
+    <script>localStorage.removeItem('coffee-shop-cart');</script>
+</body>
+</html>

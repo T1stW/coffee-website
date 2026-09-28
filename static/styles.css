@@ -1,0 +1,213 @@
+/* Сброс: по умолчанию у браузера свои отступы, они мешают */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, sans-serif;
+    background: #f5efe6;   
+    color: #3b2f2f;        
+}
+
+header {
+    background: #6f4e37;   /* кофейный */
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+nav a:hover {
+    color: #d7b899;        
+}
+
+section {
+    padding: 40px 20px;
+    max-width: 1100px;
+    margin: 0 auto;        
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.menu-item {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    text-align: center;
+}
+
+.menu-item button {
+    background: #6f4e37;
+    color: #fff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.menu-item button:hover {
+    background: #8a6244;
+}
+
+#checkout {
+    background: #6f4e37;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#checkout:hover {
+    background: #8a6244;
+}
+
+footer {
+    background: #3b2f2f;
+    color: #f5efe6;
+    padding: 30px 20px;
+    text-align: center;
+}
+
+#cart-items {
+    list-style: none;
+    padding-left: 0;
+}
+
+#search {
+    margin-left: 20px;
+    padding: 10px 14px;
+    border: 1px solid #d7b899;
+    border-radius: 999px;
+    background: #9e7657;
+    color: #f8f8f8;
+    font-size: 14px;
+    width: 320px;
+    outline: none;
+}
+
+#search:focus {
+    border-color: #6f4e37;
+    box-shadow: 0 0 0 3px rgba(111, 78, 55, 0.12);
+}
+
+/* Auth pages */
+body { min-height: 100vh; }
+main {
+    width: min(100% - 32px, 440px);
+    margin: 64px auto;
+    padding: 32px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 8px 28px rgba(59, 47, 47, 0.12);
+}
+main h1 { margin-bottom: 24px; color: #6f4e37; }
+main form { display: grid; gap: 18px; }
+main label { display: grid; gap: 8px; font-weight: 600; }
+main input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #d7b899;
+    border-radius: 8px;
+    font: inherit;
+}
+main input:focus { outline: 3px solid rgba(111, 78, 55, 0.18); border-color: #6f4e37; }
+main button {
+    padding: 12px 16px;
+    border: 0;
+    border-radius: 8px;
+    background: #6f4e37;
+    color: #fff;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+}
+main button:hover { background: #8a6244; }
+main p { margin-top: 18px; }
+main a { color: #6f4e37; }
+main ul {
+    margin: 0 0 18px;
+    padding: 12px 12px 12px 32px;
+    border-radius: 8px;
+    background: #fff2e8;
+}
+
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;   /* складываем в столбик */
+        gap: 12px;
+    }
+    nav a {
+        margin: 0 10px;
+    }
+    main { margin: 24px auto; padding: 24px; }
+}
+
+header {
+    position: relative;
+}
+
+header nav {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+}
+
+.account {
+    margin-left: auto;
+}
+
+.account a {
+    color: #f5efe6;
+}
+
+.account a:hover {
+    color: #d7b899;
+}
+
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    header nav {
+        position: static;
+        transform: none;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    header nav a {
+        margin: 0;
+    }
+
+    .account {
+        margin-left: 0;
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    #search {
+        width: min(100%, 320px);
+        margin-left: 0;
+    }
+}

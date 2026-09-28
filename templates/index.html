@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кафешка</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+    <header>
+        <h1>Кафешка</h1>
+            <nav>
+                <a href="#menu">Меню</a>
+                <a href="#reviews">Отзывы</a>
+                <a href="#promos">Акции</a>
+                <a href="#contacts">Контакты</a>
+            </nav>
+
+            <div class="account">
+                {% if current_user.is_authenticated %}
+                    <span>Привет, {{ current_user.username }}!</span>
+                    <a href="{{ url_for('logout') }}">Выйти</a>
+                {% else %}
+                    <a href="{{ url_for('register') }}">Регистрация</a>
+                    <a href="{{ url_for('login') }}">Войти</a>
+                {% endif %}
+            </div>
+        <input type="text" id="search" placeholder="Поиск по меню...">
+    </header>
+
+    <section id="menu">
+        <h2>Меню</h2>
+        <div class="menu-grid">
+            {% for item in items %}
+            <div class="menu-item">
+                <a href="/coffee/{{ item.id }}" style="text-decoration:none;color:inherit;">
+                    <h3>{{ item.name }}</h3>
+                    <p>{{ item.price }} грн.</p>
+                </a>
+                <button data-id="{{ item.id }}" class="add-to-cart">В корзину</button>
+            </div>
+            {% endfor %}
+        </div>  
+    </section>
+
+    <section id="cart">
+        <h2>Корзина</h2>
+        <form id="checkout-form" action="{{ url_for('checkout') }}" method="post">
+            <input type="hidden" id="cart-data" name="cart_data">
+        </form>
+        <ul id="cart-items"></ul>
+        <p>Итого: <span id="cart-total">0</span> грн.</p>
+        <button id="checkout">Оформить заказ</button>
+    </section>
+
+    <footer id="contacts">
+        <p>Адрес: ул. Примерная, 1</p>
+        <p>Телефон: +6 7 67676767</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
