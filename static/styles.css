@@ -148,7 +148,7 @@ main ul {
 
 @media (max-width: 600px) {
     header {
-        flex-direction: column;   /* складываем в столбик */
+        flex-direction: column;   
         gap: 12px;
     }
     nav a {
