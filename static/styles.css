@@ -12,7 +12,7 @@ body {
 }
 
 header {
-    background: #6f4e37; 
+    background: #6f4e37;
     color: #fff;
     padding: 20px;
     display: flex;
@@ -105,7 +105,6 @@ footer {
     box-shadow: 0 0 0 3px rgba(111, 78, 55, 0.12);
 }
 
-/* Auth pages */
 body { min-height: 100vh; }
 main {
     width: min(100% - 32px, 440px);
@@ -148,7 +147,7 @@ main ul {
 
 @media (max-width: 600px) {
     header {
-        flex-direction: column;   
+        flex-direction: column;
         gap: 12px;
     }
     nav a {
